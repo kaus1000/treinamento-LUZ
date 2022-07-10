@@ -11,6 +11,7 @@ typedef struct no
 typedef struct
 {
     No *raiz;
+    int altura;
 } ArvoreBin;
 
 // Cria uma arvore

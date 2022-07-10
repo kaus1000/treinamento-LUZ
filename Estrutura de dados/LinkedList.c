@@ -33,7 +33,7 @@ No *criaNo(int chave)
 
     return no;
 }
-// Cria uma lista
+// Imprime a lista
 void imprime(No *lista)
 {
     lista = lista->prox;  // lista aponta para o proximo
@@ -131,7 +131,7 @@ void InserirFim (LISTA* lista, int v) {  //metodo para inserir um novo elemento 
 /* Função para liberar a lista,
 essa função serve para destruir todos os elementos da lista e liberar
 a memória ocupada.*/
-void liberar(No *l)
+void liberar(LISTA *l)
 {
     No *aux = l;
 
@@ -141,6 +141,8 @@ void liberar(No *l)
         free(aux); // liberar espaço da memoria
         aux = proximo;
     }
+    l->ini= NULL;
+    l->fim= NULL; 
 }
 int main()
 {
@@ -192,7 +194,6 @@ int main()
             break;
         case 6:
             liberar(lista);
-            criaLista(lista);
             break;
         case 7:
             imprime(lista);
