@@ -1,0 +1,62 @@
+﻿<Window x:Class="SchoolApp.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchoolApp.Views"
+        xmlns:local2="clr-namespace:SistemaEscola.Enum"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="854">
+
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataEnum" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local2:AdicionarPessoas"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid>
+        <ListView 
+		DockPanel.Dock="Top"
+        
+		ItemsSource="{Binding Path=listaPessoas, Mode=OneWay}"
+		SelectedItem="{Binding Path=PessoaSelecionada}" SelectionChanged="ListView_SelectionChanged" RenderTransformOrigin="0.371,0.488" Margin="4,2,222,7">
+            <ListView.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.536"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-2.977"/>
+                </TransformGroup>
+            </ListView.RenderTransform>
+            <ListView.View>
+                <GridView>
+
+                    <GridViewColumn Header="Nome"   DisplayMemberBinding="{Binding Path=Nome}"/>
+                    <GridViewColumn Header="Sobrenome" DisplayMemberBinding="{Binding Path=Sobrenome}"/>
+                    <GridViewColumn Header="Serie" DisplayMemberBinding="{Binding Path=Serie}"/>
+                    <GridViewColumn Header="Matricula" DisplayMemberBinding="{Binding Path=Matricula}"/>
+                    <GridViewColumn Header="Cargo" DisplayMemberBinding="{Binding Path=Cargo}"/>
+                    <GridViewColumn Header="Salario" DisplayMemberBinding="{Binding Path=Salario}"/>
+                    <GridViewColumn Header="CodFuncionario" DisplayMemberBinding="{Binding Path=CodFuncionario}"/>
+
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+
+
+
+
+        <Button Content="Adicionar" Command="{Binding Path=CadastroPessoa}" HorizontalAlignment="Left" Margin="672,95,0,0" VerticalAlignment="Top" Height="41" Width="142"/>
+        <Button Content="Editar" Command="{Binding Path=AtualizarPessoa}" HorizontalAlignment="Left" Margin="674,299,0,0" VerticalAlignment="Top" Width="140" Height="38" RenderTransformOrigin="0.496,1.04"/>
+        <Button Content="Remover" Command="{Binding Path=RemoverPessoa}" HorizontalAlignment="Left" Margin="674,368,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.611,3.96" Width="140" Height="38"/>
+        <ComboBox Name="ComboAdicionarPessoas" ItemsSource="{Binding Source={StaticResource dataEnum}}" SelectedItem="{Binding itemAdicionar}" Text="{Binding itemAdicionar}" HorizontalAlignment="Left" Margin="672,37,0,0" VerticalAlignment="Top" Width="142" Height="22"/>
+
+
+
+
+
+    </Grid>
+</Window>

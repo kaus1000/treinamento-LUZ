@@ -1,0 +1,94 @@
+﻿<Window x:Class="SistemaEscola.View.FormularioFuncionario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemaEscola.View"
+        xmlns:local2="clr-namespace:SistemaEscola.Enum"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Formulario" Height="220" Width="280">
+
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataEnum" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local2:Cargo"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+
+    <StackPanel>
+        <Grid Margin="5">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+					Grid.Row="0"
+					Grid.Column="0">Nome</Label>
+            <TextBox
+                    Name="StringTextBoxNome" PreviewTextInput="StringValidationTextBox"
+					Grid.Row="0"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					Text="{Binding Nome}"></TextBox>
+
+            <Label
+					Grid.Row="1"
+					Grid.Column="0">Sobrenome</Label>
+            <TextBox
+                    Name="StringTextBox" PreviewTextInput="StringValidationTextBox"
+					Grid.Row="1"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					Text="{Binding Sobrenome}"></TextBox>
+
+
+
+            <Label
+					Grid.Row="3"
+					Grid.Column="0">Salario</Label>
+            <TextBox
+                    
+                    PreviewTextInput="NumberValidationTextBox"
+					Grid.Row="3"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					Text="{Binding Salario}"></TextBox>
+            
+            <Label
+					Grid.Row="4"
+					Grid.Column="0">CodFuncionario</Label>
+            <TextBox
+                    
+                    PreviewTextInput="NumberValidationTextBox"
+					Grid.Row="4"
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					Text="{Binding CodFuncionario}"></TextBox>
+
+            <Label
+                    Grid.Row="4"
+                    Grid.Column="0" Margin="0,30,0,-30">Cargo</Label>
+            <ComboBox Name="ComboCargo" ItemsSource="{Binding Source={StaticResource dataEnum}}" SelectedItem="{Binding Cargo}" Text="{Binding Cargo}"  Margin="71,32,0,-22" Grid.Row="4" Grid.ColumnSpan="2">
+
+            </ComboBox>
+
+
+        </Grid>
+        <Button 
+		MaxWidth="100"
+		Click="Button_Click" Content="Confirmar" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,30,0,0"/>
+
+    </StackPanel>
+</Window>
