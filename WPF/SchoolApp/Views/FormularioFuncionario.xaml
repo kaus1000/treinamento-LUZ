@@ -65,17 +65,19 @@
 					Grid.Column="1"
 					VerticalAlignment="Center"
 					Text="{Binding Salario}"></TextBox>
-            
+
             <Label
 					Grid.Row="4"
 					Grid.Column="0">CodFuncionario</Label>
             <TextBox
-                    
+                    x:Name="CodFuncionario"
                     PreviewTextInput="NumberValidationTextBox"
 					Grid.Row="4"
 					Grid.Column="1"
 					VerticalAlignment="Center"
-					Text="{Binding CodFuncionario}"></TextBox>
+					Text="{Binding CodFuncionario}"
+                
+               />
 
             <Label
                     Grid.Row="4"
@@ -88,7 +90,14 @@
         </Grid>
         <Button 
 		MaxWidth="100"
-		Click="Button_Click" Content="Confirmar" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,30,0,0"/>
+		Click="Button_Click" Content="Confirmar" Foreground="White" HorizontalAlignment="Stretch" Margin="0,30,0,0" BorderBrush="#FF993399" Background="#FF993399" Height="24" Width="278">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="3."/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
     </StackPanel>
+
 </Window>

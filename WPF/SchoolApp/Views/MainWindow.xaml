@@ -20,7 +20,7 @@
         <ListView 
 		DockPanel.Dock="Top"
         
-		ItemsSource="{Binding Path=listaPessoas, Mode=OneWay}"
+		ItemsSource="{Binding  Path=listaPessoas, Mode=OneWay}"
 		SelectedItem="{Binding Path=PessoaSelecionada}" SelectionChanged="ListView_SelectionChanged" RenderTransformOrigin="0.371,0.488" Margin="4,2,222,7">
             <ListView.RenderTransform>
                 <TransformGroup>
@@ -48,11 +48,11 @@
 
 
 
-
-        <Button x:Name="Button1" Content="Adicionar" Command="{Binding Path=CadastroPessoa}" HorizontalAlignment="Left" Margin="672,95,0,0" VerticalAlignment="Top" Height="41" Width="142"/>
-        <Button Content="Editar" Command="{Binding Path=AtualizarPessoa}" HorizontalAlignment="Left" Margin="674,299,0,0" VerticalAlignment="Top" Width="140" Height="38" RenderTransformOrigin="0.496,1.04"/>
-        <Button Content="Remover" Command="{Binding Path=RemoverPessoa}" HorizontalAlignment="Left" Margin="674,368,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.611,3.96" Width="140" Height="38"/>
-        <ComboBox Name="ComboAdicionarPessoas" ItemsSource="{Binding Source={StaticResource dataEnum}}" SelectedItem="{Binding itemAdicionar}" Text="{Binding itemAdicionar}" HorizontalAlignment="Left" Margin="672,37,0,0" VerticalAlignment="Top" Width="142" Height="22"/>
+  
+        <Button BorderBrush="#FF993399" Background="#FF993399" Foreground="White" IsEnabled="{Binding Desativado}" x:Name="Button1" Content="Adicionar" Command="{Binding Path=CadastroPessoa}" HorizontalAlignment="Left" Margin="672,95,0,0" VerticalAlignment="Top" Height="41" Width="142"/>
+        <Button BorderBrush="#FF993399" Background="#FF993399" Foreground="White" Content="Editar" Command="{Binding Path=AtualizarPessoa}" HorizontalAlignment="Left" Margin="674,299,0,0" VerticalAlignment="Top" Width="140" Height="38" RenderTransformOrigin="0.496,1.04"/>
+        <Button BorderBrush="#FF993399" Background="#FF993399" Foreground="White" Content="Remover" Command="{Binding Path=RemoverPessoa}" HorizontalAlignment="Left" Margin="674,368,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.611,3.96" Width="140" Height="38"/>
+        <ComboBox Name="ComboAdicionarPessoas" ItemsSource="{Binding Source={StaticResource dataEnum}}" SelectedItem="{Binding PessoaAdicionar}" Text="{Binding PessoaAdicionar}" HorizontalAlignment="Left" Margin="672,37,0,0" VerticalAlignment="Top" Width="142" Height="22"/>
 
 
 

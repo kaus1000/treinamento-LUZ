@@ -2,7 +2,7 @@
 
 namespace SistemaEscola.Model
 {
-    internal class Funcionario : Pessoa, ICloneable, IPessoa
+    public class Funcionario : Pessoa, ICloneable, IPessoa
     {
         private float salario;
         private string cargo = string.Empty;
@@ -17,6 +17,7 @@ namespace SistemaEscola.Model
         }
         public Funcionario(Funcionario p)
         {
+            this.Id = p.Id;
             this.Nome = p.Nome;
             this.Sobrenome = p.Sobrenome;
             this.Salario = p.Salario;

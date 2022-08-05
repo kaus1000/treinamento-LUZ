@@ -1,2 +1,7 @@
 .vscode/
 WPF/SchoolApp/packages
+WPF/SchoolApp/.vs
+WPF/SchoolApp/bin
+WPF/SchoolApp/obj
+WPF/TestSistemaEscola/Bin
+WPF/TestSistemaEscola/obj

@@ -31,4 +31,9 @@
         Aluno = 1,
         Funcionario = 2
     }
+    public enum Filter
+    {
+        Aluno= 0,
+        Funcionario = 1,
+    }
 }

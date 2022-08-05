@@ -1,4 +1,5 @@
-﻿using SistemaEscola.Model;
+﻿using SistemaEscola.Enum;
+using SistemaEscola.Model;
 using SistemaEscola.View;
 
 using System.Windows;
@@ -7,26 +8,26 @@ namespace SistemaEscola.Models
 {
     internal static class NovaPessoa
     {
-        public static IPessoa criaNovaPessoa(string pessoa)
+        public static IPessoa criaNovaPessoa(AdicionarPessoas pessoa)
         {
-            if (pessoa == "Aluno")
+            if (pessoa == AdicionarPessoas.Aluno)
             {
                 return new Aluno();
             }
-            else if (pessoa == "Funcionario")
+            else if (pessoa == AdicionarPessoas.Funcionario)
             {
                 return new Funcionario();
             }
             return null;
         }
 
-        public static Window criaNovaTela(string pessoa)
+        public static Window criaNovaTela(AdicionarPessoas pessoa)
         {
-            if (pessoa == "Aluno")
+            if (pessoa == AdicionarPessoas.Aluno)
             {
                 return new FormularioAluno();
             }
-            else if (pessoa == "Funcionario")
+            else if (pessoa == AdicionarPessoas.Funcionario)
             {
                 return new FormularioFuncionario();
             }
